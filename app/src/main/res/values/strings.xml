@@ -3,4 +3,6 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="log_in_button">Log In</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="logo_description">Start lEARNing</string>
 </resources>
