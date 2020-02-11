@@ -3,7 +3,6 @@ package com.example.learn.Utils
 import android.content.Context
 import android.widget.Toast
 import com.example.learn.Models.Login
-import com.example.learn.Models.Product
 import com.example.learn.Routes
 import retrofit2.Call
 import retrofit2.Callback
