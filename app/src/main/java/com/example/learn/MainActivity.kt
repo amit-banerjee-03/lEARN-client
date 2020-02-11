@@ -1,5 +1,6 @@
 package com.example.learn
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,7 @@ import java.lang.Exception
 import android.widget.TextView
 import android.graphics.PorterDuff
 import com.example.learn.Utils.Authenticate
+import com.example.learn.Utils.AuthenticationToken
 import com.example.learn.Utils.ErrorHandler
 
 
@@ -17,6 +19,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val jwt=AuthenticationToken(this).getJWT()
+        if(jwt==""){
+            Toast.makeText(this,"User not logged in",Toast.LENGTH_LONG).show()
+        } else{
+            Toast.makeText(this,"User logged in",Toast.LENGTH_LONG).show()
+        }
         logInButton.setOnClickListener {
             var error = validateInputs()
             if (error.isNotEmpty()) {
@@ -38,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         var u=username.text.toString()
         var p=password.text.toString()
         var error= String()
+        return error
         if(u.isEmpty()){
             error="Please enter username"
         } else if(p.isEmpty()){
