@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         var u=username.text.toString()
         var p=password.text.toString()
         var error= String()
-        return error
         if(u.isEmpty()){
             error="Please enter username"
         } else if(p.isEmpty()){
