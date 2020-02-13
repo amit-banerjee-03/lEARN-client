@@ -1,6 +1,7 @@
 package com.example.learn
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"User not logged in",Toast.LENGTH_LONG).show()
         } else{
             Toast.makeText(this,"User logged in",Toast.LENGTH_LONG).show()
+//            intent = Intent(this,Home::class.java)
+//            startActivity(intent)
+//            finish()
         }
         logInButton.setOnClickListener {
             var error = validateInputs()
