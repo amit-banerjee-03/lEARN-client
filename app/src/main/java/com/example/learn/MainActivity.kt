@@ -21,13 +21,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val jwt=AuthenticationToken(this).getJWT()
-        if(jwt==""){
-            Toast.makeText(this,"User not logged in",Toast.LENGTH_LONG).show()
-        } else{
+        if(jwt!=""){
             Toast.makeText(this,"User logged in",Toast.LENGTH_LONG).show()
-//            intent = Intent(this,Home::class.java)
-//            startActivity(intent)
-//            finish()
+            intent = Intent(this,Home::class.java)
+            startActivity(intent)
+            finish()
         }
         logInButton.setOnClickListener {
             var error = validateInputs()
