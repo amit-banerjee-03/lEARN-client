@@ -1,6 +1,5 @@
 package com.example.learn.Models
 
-class Course(val id:Int,val name: String,val image:String){
+data class Courses(val count:Int,val courses: List<Course>)
 
-
-}
+data class Course(val id:Int,val name:String,val description:String,val level:String,val cover_image:String)

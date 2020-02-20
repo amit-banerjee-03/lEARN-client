@@ -49,7 +49,7 @@ class ImageListView(context: Context, courses: List<Course>):BaseAdapter(){
 
         val course=courses[position]
         courseName.text=course.name
-        LoadImage(courseImage, course.image).execute()
+        LoadImage(courseImage, course.cover_image).execute()
 //        val resourseId=context.resources.getIdentifier(course.image,"drawable",context.packageName)
 //        courseImage.setImageResource(resourseId)
         return courseView
