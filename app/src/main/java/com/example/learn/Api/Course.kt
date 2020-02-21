@@ -5,10 +5,7 @@ import com.example.learn.Models.Courses
 import com.example.learn.Models.Login
 import com.example.learn.Models.Users
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface Course {
 //    @FormUrlEncoded
@@ -30,6 +27,7 @@ interface Course {
 
     @GET("courses/")
     fun getCourses(
+        @Header("Authorization") authorization:String
 //        @Query("_id") id: String
     ): Call<Courses>
 }
