@@ -7,6 +7,7 @@ import android.util.Base64
 import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.example.learn.Api.ApiError
 import com.example.learn.Api.Course
 import com.example.learn.Api.User
@@ -31,7 +32,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 object HomePageCourses {
-    fun getCourses(context: Context, courseListElement: ListView) {
+    fun getCourses(context: Context, courseListElement: RecyclerView) {
         RetrofitClientCourse.instance.getCourses("Bearer ${AuthenticationToken(context).getJWT()}")
             .enqueue(object: Callback<Courses> {
                 override fun onFailure(call: Call<Courses>, t: Throwable) {
@@ -42,7 +43,7 @@ object HomePageCourses {
                         if(response.isSuccessful) {
                             Home.LoadCourses(context, courseListElement, response.body()!!.courses).execute()
                         } else{
-                            val error= ApiError().getError(response.errorBody().toString())
+                            val error= ApiError().getError(response.errorBody()?.string())
                             ErrorHandler.handle(context,error)
                             if(response.code()==401){
                                 AuthenticationToken(context).setJWT("")

@@ -7,11 +7,11 @@ import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.ListView
+import android.widget.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.learn.ApiCalls.HomePageCourses
+import com.example.learn.CustomAdapters.CourseRecycleAdapter
 import com.example.learn.CustomAdapters.ImageListView
 import com.example.learn.Models.Course
 import com.example.learn.Models.Courses
@@ -21,7 +21,7 @@ import java.net.URL
 
 class Home : AppCompatActivity() {
 
-    lateinit var adapter: ImageListView
+    lateinit var adapter: CourseRecycleAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class Home : AppCompatActivity() {
         HomePageCourses.getCourses(this,courseListView)
     }
 
-    class LoadCourses(context: Context,courseListElement:ListView,courses:List<Course>): AsyncTask<String, Void, String>(){
+    class LoadCourses(context: Context,courseListElement:RecyclerView,courses:List<Course>): AsyncTask<String, Void, String>(){
         val courses=courses
         val context=context
         val courseListElement=courseListElement
@@ -38,7 +38,12 @@ class Home : AppCompatActivity() {
         }
 
         override fun onPostExecute(result: String?) {
-            courseListElement.adapter=ImageListView(context,courses)
+            courseListElement.adapter=CourseRecycleAdapter(context,courses){course ->  
+                Toast.makeText(context,course.description,Toast.LENGTH_LONG).show()
+            }
+            val layoutManager = LinearLayoutManager(context)
+            courseListElement.layoutManager=layoutManager
+            courseListElement.setHasFixedSize(true)
         }
 
     }
