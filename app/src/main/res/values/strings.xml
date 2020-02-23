@@ -5,4 +5,7 @@
     <string name="log_in_button">Log In</string>
     <string name="sign_up_button">Sign Up</string>
     <string name="logo_description">Start lEARNing</string>
+    <string name="empty_course">No videos added for this course yet. Stay tuned for updates!!</string>
+    <string name="video_title">VIDEO TITLE</string>
+    <string name="video_description">VIDEO DESCRIPTION</string>
 </resources>

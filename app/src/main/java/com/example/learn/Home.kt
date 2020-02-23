@@ -1,6 +1,7 @@
 package com.example.learn
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
@@ -40,6 +41,9 @@ class Home : AppCompatActivity() {
         override fun onPostExecute(result: String?) {
             courseListElement.adapter=CourseRecycleAdapter(context,courses){course ->  
                 Toast.makeText(context,course.description,Toast.LENGTH_LONG).show()
+                val intent = Intent(context,VideoList::class.java)
+                intent.putExtra("COURSE_ID",course.id)
+                context.startActivity(intent)
             }
             val layoutManager = LinearLayoutManager(context)
             courseListElement.layoutManager=layoutManager
