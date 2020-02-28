@@ -10,6 +10,7 @@ import com.example.learn.Api.ApiError
 import com.example.learn.Home
 import com.example.learn.MainActivity
 import com.example.learn.Models.Login
+import com.example.learn.OverviewActivity
 import com.example.learn.Routes
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,7 +27,7 @@ object Authenticate {
         }
 
         override fun onPostExecute(result: Context?) {
-            result!!.startActivity(Intent(result,Home::class.java))
+            result!!.startActivity(Intent(result,OverviewActivity::class.java))
             (result as MainActivity).finish()
         }
 

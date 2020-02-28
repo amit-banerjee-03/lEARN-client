@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val jwt=AuthenticationToken(this).getJWT()
         if(jwt!=""){
             Toast.makeText(this,"User logged in",Toast.LENGTH_LONG).show()
-            intent = Intent(this,Home::class.java)
+            intent = Intent(this,OverviewActivity::class.java)
             startActivity(intent)
             finish()
         }
