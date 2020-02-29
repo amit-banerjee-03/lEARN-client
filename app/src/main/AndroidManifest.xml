@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".OverviewActivity"></activity>
+        <activity android:name=".LabProblemActivity"></activity>
+        <activity android:name=".LabProblemsActivity" />
+        <activity android:name=".VirtualLabsActivity" />
+        <activity android:name=".OverviewActivity" />
         <activity android:name=".VideoPlayerActivity" />
         <activity android:name=".VideoList" />
         <activity android:name=".Home" />

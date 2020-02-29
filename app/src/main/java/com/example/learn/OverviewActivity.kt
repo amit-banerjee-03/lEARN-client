@@ -14,5 +14,9 @@ class OverviewActivity : AppCompatActivity() {
             intent= Intent(this,Home::class.java)
             startActivity(intent)
         }
+        virtualLabButton.setOnClickListener {
+            intent= Intent(this,VirtualLabsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -59,10 +59,16 @@ class CourseRecycleAdapter(
     inner class Holder(itemView: View, val itemClick: (Course) -> Unit) : ViewHolder(itemView) {
         val courseImage = itemView?.findViewById<ImageView>(R.id.courseImage)
         val courseName = itemView?.findViewById<TextView>(R.id.courseName)
+        val courseLevel=itemView?.findViewById<ImageView>(R.id.courseLevelImage)
 
         fun bindCourse(course: Course, context: Context) {
-//            val resourceId=context.resources.getIdentifier(course.cover_image,"drawable",context.packageName)
-//            courseImage.setImageResource(resourceId)
+            if(course.level=="Beginner"){
+                courseLevel.setImageResource(R.mipmap.beginner_icon)
+            } else if(course.level=="Intermediate"){
+                courseLevel.setImageResource(R.mipmap.intermediate_icon)
+            } else{
+                courseLevel.setImageResource(R.mipmap.advanced_icon)
+            }
             courseName.text = course.name
             LoadImage(courseImage, course.cover_image).execute()
             itemView.setOnClickListener{itemClick(course)}
