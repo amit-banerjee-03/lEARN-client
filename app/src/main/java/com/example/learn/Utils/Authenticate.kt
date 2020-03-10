@@ -57,7 +57,8 @@ object Authenticate {
                         }
                         return
                     }
-                    AuthenticationToken(context).setJWT(response.body()!!.token)
+//                    AuthenticationToken(context).setJWT(response.body()!!.token)
+                    AuthenticationToken(context).setUserDetails(response.body()!!)
                     Toast.makeText(context,"Successfully logged in",Toast.LENGTH_LONG).show()
                     StartHomeActivity().execute(context)
                 }

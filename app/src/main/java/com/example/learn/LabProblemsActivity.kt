@@ -31,6 +31,7 @@ class LabProblemsActivity : AppCompatActivity() {
         override fun onPostExecute(result: String?) {
             labProblemElement.adapter= LabProblemRecycleAdapter(context,labProblems){ labProblem ->
                 val intent=Intent(context,LabProblemActivity::class.java)
+                intent.putExtra("ID",labProblem.id)
                 intent.putExtra("CAPTION",labProblem.caption)
                 intent.putExtra("DESCRIPTION",labProblem.problem_description)
                 context.startActivity(intent)

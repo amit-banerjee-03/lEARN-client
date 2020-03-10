@@ -10,4 +10,8 @@
     <string name="video_description">VIDEO DESCRIPTION</string>
     <string name="no_lab_found">No virtual labs have been added yet. Stay tuned for updates!!</string>
     <string name="empty_lab">No problems added for this lab yet. Stay tuned for updates!!</string>
+    <string name="open_editor">Start Coding</string>
+    <string name="custom_coding_input">Enter your custom input in the box below</string>
+    <string name="done">Done</string>
+    <string name="submit">Submit</string>
 </resources>

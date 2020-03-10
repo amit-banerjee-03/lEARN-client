@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CodeEditorActivity">
+
+    <Spinner
+        android:id="@+id/selectLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/codeEditor"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectLanguage" />
+
+    <Button
+        android:id="@+id/compileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codeEditor" />
+    <Button
+        android:id="@+id/runButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Run"
+        app:layout_constraintTop_toBottomOf="@+id/codeEditor"
+        app:layout_constraintStart_toEndOf="@+id/customInputButton"
+        app:layout_constraintEnd_toStartOf="@+id/submitButton"
+        />
+
+    <Button
+        android:id="@+id/customInputButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Input"
+        app:layout_constraintStart_toEndOf="@+id/compileButton"
+        app:layout_constraintEnd_toStartOf="@+id/runButton"
+        app:layout_constraintTop_toBottomOf="@+id/codeEditor" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codeEditor" />
+
+    <TextView
+        android:id="@+id/outputLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Output:"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compileButton" />
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:layout_constraintTop_toBottomOf="@+id/outputLabel">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:fontFamily="sans-serif-black"
+            android:id="@+id/outputId"
+            android:padding="10dp"/>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

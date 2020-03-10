@@ -15,5 +15,9 @@ object Utility {
         return URLEncoder.encode(url,"utf-8")
     }
 
+    fun escapeString(string: String):String{
+        return string.replace('"','\"',false)
+    }
+
 
 }

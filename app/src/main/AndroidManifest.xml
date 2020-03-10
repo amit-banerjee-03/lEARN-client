@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LabProblemActivity"></activity>
+        <activity android:name=".CodeEditorActivity"></activity>
+        <activity android:name=".LabProblemActivity" />
         <activity android:name=".LabProblemsActivity" />
         <activity android:name=".VirtualLabsActivity" />
         <activity android:name=".OverviewActivity" />
