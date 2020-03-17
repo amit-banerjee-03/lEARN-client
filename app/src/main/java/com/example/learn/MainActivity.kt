@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val jwt=AuthenticationToken(this).getJWT()
         if(jwt!=""){
-            Toast.makeText(this,"User logged in",Toast.LENGTH_LONG).show()
             intent = Intent(this,OverviewActivity::class.java)
             startActivity(intent)
             finish()

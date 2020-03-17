@@ -13,7 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CodeEditorActivity"></activity>
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".CodeEditorActivity" />
         <activity android:name=".LabProblemActivity" />
         <activity android:name=".LabProblemsActivity" />
         <activity android:name=".VirtualLabsActivity" />
@@ -21,13 +28,7 @@
         <activity android:name=".VideoPlayerActivity" />
         <activity android:name=".VideoList" />
         <activity android:name=".Home" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>
