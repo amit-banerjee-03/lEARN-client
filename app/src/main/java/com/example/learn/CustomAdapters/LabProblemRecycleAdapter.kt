@@ -4,6 +4,8 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
+import android.os.Build
+import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -42,7 +44,7 @@ class LabProblemRecycleAdapter(
     inner class Holder(itemView: View, val itemClick: (LabProblem) -> Unit) : ViewHolder(itemView) {
         val caption = itemView?.findViewById<TextView>(R.id.labProblemCaption)
         val problemLevel=itemView?.findViewById<ImageView>(R.id.labProblemLevel)
-
+        val problemStatus=itemView?.findViewById<TextView>(R.id.labProblemStatus)
         fun bindLabProblem(labProblem: LabProblem, context: Context) {
             caption.text = labProblem.caption
             if(labProblem.level=="Beginner"){
@@ -51,6 +53,12 @@ class LabProblemRecycleAdapter(
                 problemLevel.setImageResource(R.mipmap.intermediate_icon)
             } else{
                 problemLevel.setImageResource(R.mipmap.advanced_icon)
+            }
+            var html="<font color='${labProblem.status_color}'><b>${labProblem.status}</b></font>"
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                problemStatus.text= Html.fromHtml(html, Html.FROM_HTML_MODE_COMPACT)
+            } else {
+                problemStatus.text= Html.fromHtml(html)
             }
             itemView.setOnClickListener{itemClick(labProblem)}
         }

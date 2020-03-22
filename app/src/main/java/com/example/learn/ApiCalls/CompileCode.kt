@@ -26,6 +26,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
+import java.util.concurrent.TimeUnit
 
 object CompileCode {
     fun compile(context: Context,source:String,lang:String,outputText:TextView,customInputString: String) {
@@ -59,6 +60,8 @@ object CompileCode {
 object RetrofitClientCode {
     private const val BASE_URL= Constants.SERVER_HOST
     private val okHttpClient = OkHttpClient.Builder()
+        .connectTimeout(100, TimeUnit.SECONDS)
+        .readTimeout(100, TimeUnit.SECONDS)
         .addInterceptor{chain ->
             val original=chain.request()
 
