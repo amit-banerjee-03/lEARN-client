@@ -2,13 +2,11 @@ package com.example.learn.Api
 
 import android.database.Observable
 import com.example.learn.Models.Login
+import com.example.learn.Models.UserProgress
 import com.example.learn.Models.Users
 import com.example.learn.Routes
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface User {
     @FormUrlEncoded
@@ -28,8 +26,9 @@ interface User {
         @Field("gender") gender:String
     ): Call<User>
 
-    @GET("user/")
-    fun getDetails(
-//        @Query("_id") id: String
-    ): Observable<Users>
+    @GET("user/progress/")
+    fun getProgress(
+        @Header("Authorization") authorization:String
+    ): Call<UserProgress>
+
 }

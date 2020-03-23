@@ -27,6 +27,10 @@ class OverviewActivity : AppCompatActivity() {
             intent= Intent(this,VirtualLabsActivity::class.java)
             startActivity(intent)
         }
+        progressMonitorButton.setOnClickListener {
+            intent= Intent(this,ProgressMonitorActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }

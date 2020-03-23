@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.MediaController
+import android.widget.Toast
+import com.example.learn.ApiCalls.FinishVideo
 import kotlinx.android.synthetic.main.activity_video_player.*
 import java.net.URI
 
@@ -16,11 +18,14 @@ class VideoPlayerActivity : AppCompatActivity() {
     private var caption=""
     private var description=""
     private var serialNumber=0
+    private var id=0
+
     private lateinit var mediaController:MediaController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player)
+        id=intent.getIntExtra("VIDEO_ID",0)
         rtspUrl=intent.getStringExtra("VIDEO_URL")
         caption=intent.getStringExtra("VIDEO_CAPTION")
         description=intent.getStringExtra("VIDEO_DESCRIPTION")
@@ -39,6 +44,11 @@ class VideoPlayerActivity : AppCompatActivity() {
             }
             true
         }
+
+        videoPlayer.setOnCompletionListener {
+            FinishVideo.execute(this,id)
+        }
+
     }
 
     override fun onStart() {

@@ -1,11 +1,8 @@
 package com.example.learn.Api
 
 import android.database.Observable
+import com.example.learn.Models.*
 import com.example.learn.Models.Course
-import com.example.learn.Models.Courses
-import com.example.learn.Models.Login
-import com.example.learn.Models.Users
-import com.example.learn.Models.Video
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -37,4 +34,10 @@ interface Course {
         @Header("Authorization") authorization:String,
         @Query("id") id: Int
     ): Call<Course>
+
+    @GET("courses/course/finish-video")
+    fun finishVideo(
+        @Header("Authorization") authorization:String,
+        @Query("id") id: Int
+    ): Call<FinishVideo>
 }

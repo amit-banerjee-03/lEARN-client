@@ -39,6 +39,7 @@ class VideoList : AppCompatActivity() {
         override fun onPostExecute(result: String?) {
             videoListElement.adapter= VideoRecycleAdapter(context,videos){ video ->
                 val intent=Intent(context,VideoPlayerActivity::class.java)
+                intent.putExtra("VIDEO_ID",video.id)
                 intent.putExtra("VIDEO_URL",video.url)
                 intent.putExtra("VIDEO_CAPTION",video.caption)
                 intent.putExtra("VIDEO_DESCRIPTION",video.description)
