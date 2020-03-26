@@ -32,8 +32,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 object HomePageCourses {
-    fun getCourses(context: Context, courseListElement: RecyclerView) {
-        RetrofitClientCourse.instance.getCourses("Bearer ${AuthenticationToken(context).getJWT()}")
+    fun getCourses(context: Context, courseListElement: RecyclerView,searchString: String?) {
+        RetrofitClientCourse.instance.getCourses("Bearer ${AuthenticationToken(context).getJWT()}",searchString)
             .enqueue(object: Callback<Courses> {
                 override fun onFailure(call: Call<Courses>, t: Throwable) {
                     ErrorHandler.handle(context,t.toString())

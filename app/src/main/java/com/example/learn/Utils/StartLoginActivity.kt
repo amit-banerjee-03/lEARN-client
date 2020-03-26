@@ -1,5 +1,6 @@
 package com.example.learn.Utils
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.AsyncTask
@@ -13,7 +14,7 @@ class StartLoginActivity: AsyncTask<Context, Context, Context>(){
 
     override fun onPostExecute(result: Context?) {
         result!!.startActivity(Intent(result, MainActivity::class.java))
-        (result as Home).finish()
+        (result as Activity).finish()
     }
 
 }

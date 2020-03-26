@@ -8,12 +8,16 @@ import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.*
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learn.ApiCalls.HomePageCourses
 import com.example.learn.CustomAdapters.CourseRecycleAdapter
 import com.example.learn.CustomAdapters.ImageListView
+import com.example.learn.Menu.Action
 import com.example.learn.Models.Course
 import com.example.learn.Models.Courses
 import kotlinx.android.synthetic.main.activity_home.*
@@ -23,11 +27,39 @@ import java.net.URL
 class Home : AppCompatActivity() {
 
     lateinit var adapter: CourseRecycleAdapter
+    lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        HomePageCourses.getCourses(this,courseListView)
+        context=this
+        HomePageCourses.getCourses(this,courseListView,null)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.home,menu)
+        val searchItem=menu.findItem(R.id.search)
+        if(searchItem!=null){
+            val searchView=searchItem.actionView as SearchView
+            searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    HomePageCourses.getCourses(context,courseListView,newText)
+                    return true
+                }
+
+            })
+        }
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id=item.itemId
+        Action.performOperation(context,id)
+        return super.onOptionsItemSelected(item)
     }
 
     class LoadCourses(context: Context,courseListElement:RecyclerView,courses:List<Course>): AsyncTask<String, Void, String>(){

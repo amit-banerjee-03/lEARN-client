@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/search"
+        android:title="Search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:iconTint="#ffffff"
+        app:showAsAction="always|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        />
+    <item
+        android:id="@+id/settingsButton_h"
+        android:title="Settings"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:iconTint="#ffffff"
+        app:showAsAction="collapseActionView"
+        />
+    <item
+        android:id="@+id/aboutButton_h"
+        android:title="About Us"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:iconTint="#ffffff"
+        app:showAsAction="collapseActionView"
+        />
+    <item
+        android:id="@+id/logOutButton_h"
+        android:title="Log Out"
+        android:icon="@android:drawable/ic_lock_power_off"
+        android:iconTint="#ffffff"
+        app:showAsAction="collapseActionView"
+        />
+</menu>

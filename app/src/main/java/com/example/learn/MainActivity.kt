@@ -10,6 +10,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 import android.widget.TextView
 import android.graphics.PorterDuff
+import android.view.Menu
+import android.view.MenuItem
+import com.example.learn.Menu.Action
 import com.example.learn.Utils.Authenticate
 import com.example.learn.Utils.AuthenticationToken
 import com.example.learn.Utils.ErrorHandler
@@ -17,8 +20,11 @@ import com.example.learn.Utils.ErrorHandler
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var context: Context
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        context=this
         setContentView(R.layout.activity_main)
         val jwt=AuthenticationToken(this).getJWT()
         if(jwt!=""){
@@ -41,6 +47,16 @@ class MainActivity : AppCompatActivity() {
                 ErrorHandler.handle(this,error)
             }
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.default_menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id=item.itemId
+        Action.performOperation(context,id)
+        return super.onOptionsItemSelected(item)
     }
 
     private fun validateInputs(): String {

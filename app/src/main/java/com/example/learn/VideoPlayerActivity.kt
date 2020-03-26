@@ -1,13 +1,17 @@
 package com.example.learn
 
+import android.content.Context
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.MediaController
 import android.widget.Toast
 import com.example.learn.ApiCalls.FinishVideo
+import com.example.learn.Menu.Action
 import kotlinx.android.synthetic.main.activity_video_player.*
 import java.net.URI
 
@@ -21,9 +25,11 @@ class VideoPlayerActivity : AppCompatActivity() {
     private var id=0
 
     private lateinit var mediaController:MediaController
+    private lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        context=this
         setContentView(R.layout.activity_video_player)
         id=intent.getIntExtra("VIDEO_ID",0)
         rtspUrl=intent.getStringExtra("VIDEO_URL")
@@ -49,6 +55,16 @@ class VideoPlayerActivity : AppCompatActivity() {
             FinishVideo.execute(this,id)
         }
 
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.default_menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id=item.itemId
+        Action.performOperation(context,id)
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onStart() {

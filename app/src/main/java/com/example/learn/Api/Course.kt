@@ -26,7 +26,8 @@ interface Course {
 
     @GET("courses/")
     fun getCourses(
-        @Header("Authorization") authorization:String
+        @Header("Authorization") authorization:String,
+        @Query("search_query") searchQuery:String?
     ): Call<Courses>
 
     @GET("courses/course")
