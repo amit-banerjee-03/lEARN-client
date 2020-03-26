@@ -7,7 +7,7 @@
     tools:context=".OverviewActivity">
 
 
-    <ImageButton
+    <ImageView
         android:id="@+id/articlesButton"
         android:layout_width="153dp"
         android:layout_height="141dp"
@@ -16,7 +16,7 @@
         app:srcCompat="@mipmap/articles_icon"
         android:scaleType="centerCrop"/>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/progressMonitorButton"
         android:layout_width="153dp"
         android:layout_height="141dp"
@@ -48,7 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/coursesButton"
         android:layout_width="153dp"
         android:layout_height="141dp"
@@ -57,7 +57,7 @@
         android:scaleType="centerCrop"
         app:srcCompat="@mipmap/courses_icon" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/virtualLabButton"
         android:layout_width="153dp"
         android:layout_height="141dp"
