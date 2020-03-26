@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.MediaController
 import android.widget.Toast
 import com.example.learn.ApiCalls.FinishVideo
+import com.example.learn.CustomControllers.FullScreenMediaController
 import com.example.learn.Menu.Action
 import kotlinx.android.synthetic.main.activity_video_player.*
 import java.net.URI
@@ -24,7 +25,7 @@ class VideoPlayerActivity : AppCompatActivity() {
     private var serialNumber=0
     private var id=0
 
-    private lateinit var mediaController:MediaController
+    private lateinit var mediaController:FullScreenMediaController
     private lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +36,7 @@ class VideoPlayerActivity : AppCompatActivity() {
         rtspUrl=intent.getStringExtra("VIDEO_URL")
         caption=intent.getStringExtra("VIDEO_CAPTION")
         description=intent.getStringExtra("VIDEO_DESCRIPTION")
-        mediaController= MediaController(this)
+        mediaController= FullScreenMediaController(this,videoPlayer)
 
         videoPlayer.setOnPreparedListener{
             mediaController.setAnchorView(videoContainer)
