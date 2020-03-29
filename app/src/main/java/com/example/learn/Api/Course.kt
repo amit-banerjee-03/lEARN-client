@@ -41,4 +41,11 @@ interface Course {
         @Header("Authorization") authorization:String,
         @Query("id") id: Int
     ): Call<FinishVideo>
+
+    @GET("courses/certificate/")
+    fun getCertificate(
+        @Header("Authorization") authorization:String,
+        @Query("id") id: Int
+    ): Call<Certificate>
+
 }

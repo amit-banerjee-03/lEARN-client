@@ -1,9 +1,8 @@
 package com.example.learn.Api
 
 import android.database.Observable
-import com.example.learn.Models.Login
-import com.example.learn.Models.UserProgress
-import com.example.learn.Models.Users
+import com.example.learn.Models.*
+import com.example.learn.Models.User
 import com.example.learn.Routes
 import retrofit2.Call
 import retrofit2.http.*
@@ -30,5 +29,12 @@ interface User {
     fun getProgress(
         @Header("Authorization") authorization:String
     ): Call<UserProgress>
+
+    @Multipart
+    @POST("user/edit-profile-image")
+    fun editProfileImage(
+        @Header("Authorization") authorization:String,
+        @Part("image") image:String
+    ): Call<User>
 
 }
