@@ -46,6 +46,10 @@ class OverviewActivity : AppCompatActivity() {
             intent= Intent(this,ProgressMonitorActivity::class.java)
             startActivity(intent)
         }
+        articlesButton.setOnClickListener {
+            intent= Intent(this,ArticlesActivity::class.java)
+            startActivity(intent)
+        }
         editProfilePictureButton.setOnClickListener {
             showPictureDialog(this)
         }

@@ -27,7 +27,9 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         supportActionBar?.hide()
         try {
+            Log.v("SPLASH","Started")
             ProgressBarProgress(this).execute()
+            Log.v("SPLASH","Completed")
         } catch (e:Exception){
             Toast.makeText(this,"Error in splash screen",Toast.LENGTH_LONG).show()
             Log.v("SPLASH",e.toString())
@@ -39,33 +41,41 @@ class SplashScreenActivity : AppCompatActivity() {
     class ProgressBarProgress(var obj:SplashScreenActivity): AsyncTask<Unit, Unit, Unit>() {
         override fun doInBackground(vararg p0: Unit?) {
             try {
-                for (i in 1..51) {
-                    obj.setProgressBarProgress(i * 2)
+                for (i in 1..10) {
+                    obj.setProgressBarProgress(i * 10)
                     Thread.sleep(10)
                 }
+                return
             } catch (e:Exception){
                 Toast.makeText(obj.context,"Error in splash screen",Toast.LENGTH_LONG).show()
                 Log.v("SPLASH",e.toString())
             }
         }
         override fun onPostExecute(result: Unit?) {
+            Log.v("SPLASH","HOME STARTING")
             obj.loadHomeActivity()
+            Log.v("SPLASH","HOME STARTED")
         }
     }
 
-    private fun setProgressBarProgress(percent:Int){
+    private fun setProgressBarProgress(p:Int){
+        var percent=p
+        if(percent>100){
+            percent=100
+        }
         startupProgressBar.progress=percent
         var color:Int
-        if(percent<40){
+        if(percent<=20){
             color=Color.RED
-        } else if(percent<70){
+        } else if(percent<=60){
             color=Color.YELLOW
         } else{
             color=Color.GREEN
         }
-        if(percent==40 || percent==70) {
+        if(percent== 30 || percent==70) {
             startupProgressBar.progressTintList = ColorStateList.valueOf(color)
         }
+        Log.v("SPLASH",percent.toString()+" "+color)
     }
 
     private fun loadHomeActivity(){
