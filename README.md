@@ -1,45 +1,33 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# lEARN Client
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+This repository contains the source code for the e-learning android application. It contains **only** the client part of the application. The **server** code is in its separate [repository](https://www.github.com/parkouramit/lEARN-server).
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## Getting Started
 
----
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## Edit a file
+### Prerequisites
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+You need to install Android studio to manage this project. Just follow this [link](https://developer.android.com/studio) and download the software.
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+You will need to install the SDK for at least **Android M** to make further modifications to this code.
 
----
+### Installing
 
-## Create a file
+After the download of Android Studio ends, you need to install the software. Just follow the installer wizard by clicking **next** on each step and install the software.
 
-Next, you’ll add a new file to this repository.
+Once done, you can open the application by double clicking on its icon and then go to the SDK manager to install the required SDK packages.
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+Connect your android device to the PC and turn on USB Debugging. If you can install the app in your phone by clicking the run button, you are good to go.
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+One more thing that you may need to change is the **server ip address**. Go to the config folder and open the **constants** file. Change the ip as per your requirement.
 
----
+## Deployment
 
-## Clone a repository
+Deployment is simple. Just follow the [google instructions](https://developer.android.com/studio/publish) to publish your app.
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+## Authors
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+* **Amit Banerjee** - *Initial work* - [parkouramit](https://github.com/parkouramit)
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+See also the list of [contributors](https://github.com/lEARN-client/contributors) who participated in this project.
