@@ -59,4 +59,11 @@ class AuthenticationToken(context: Context) {
         return dp!!
     }
 
+    fun setUserDp(dpUrl:String?){
+        val editor=sharedPreference.edit()
+        editor.putString("user_display_picture_url",dpUrl)
+        editor.apply()
+    }
+
+
 }

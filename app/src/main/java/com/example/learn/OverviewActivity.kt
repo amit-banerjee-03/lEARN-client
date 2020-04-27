@@ -3,9 +3,11 @@ package com.example.learn
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -96,18 +98,17 @@ class OverviewActivity : AppCompatActivity() {
                 val contentURI = data!!.data
                 try
                 {
-                    val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
-                    EditUserImage.uploadImage(context,bitmap,profileImage)
+                    EditUserImage.uploadImage(context,contentURI!!,profileImage)
                 }
                 catch (e: IOException) {
-                    e.printStackTrace()
+                    Log.v("Coding",e.toString())
                     Toast.makeText(this, "Failed!", Toast.LENGTH_SHORT).show()
                 }
             }
 
         } else if (requestCode == CAMERA)
         {
-            val thumbnail = data!!.extras!!.get("data") as Bitmap
+            val thumbnail = data!!.extras!!.get("data") as Uri
             EditUserImage.uploadImage(context,thumbnail,profileImage)
         }
     }

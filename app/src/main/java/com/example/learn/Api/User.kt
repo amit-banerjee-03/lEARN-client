@@ -4,6 +4,7 @@ import android.database.Observable
 import com.example.learn.Models.*
 import com.example.learn.Models.User
 import com.example.learn.Routes
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -34,7 +35,7 @@ interface User {
     @POST("user/edit-profile-image")
     fun editProfileImage(
         @Header("Authorization") authorization:String,
-        @Part("image") image:String
-    ): Call<User>
+        @Part image:MultipartBody.Part
+    ): Call<UserObj>
 
 }

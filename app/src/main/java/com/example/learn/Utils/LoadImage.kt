@@ -22,6 +22,7 @@ class LoadImage(private val imageView: ImageView?, private val image: String) : 
 
     override fun onPostExecute(result: Bitmap?) {
         imageView?.setImageBitmap(result)
+        imageView?.invalidate()
     }
 
 }
