@@ -29,7 +29,7 @@ class VideoList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         context=this
         setContentView(R.layout.activity_video_list)
-        CourseVideoList.getVideos(this,videoListView,no_video_found,intent.getIntExtra("COURSE_ID",0))
+        CourseVideoList.getVideos(this,courseDetailImage,videoListView,no_video_found,intent.getIntExtra("COURSE_ID",0))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.AsyncTask
 import android.util.Base64
 import android.util.Log
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
@@ -20,10 +21,7 @@ import com.example.learn.Models.Courses
 import com.example.learn.Models.Login
 import com.example.learn.Models.Video
 import com.example.learn.Routes
-import com.example.learn.Utils.AuthenticationToken
-import com.example.learn.Utils.ErrorHandler
-import com.example.learn.Utils.RetrofitClient
-import com.example.learn.Utils.StartLoginActivity
+import com.example.learn.Utils.*
 import com.example.learn.VideoList
 import kotlinx.android.synthetic.main.activity_home.*
 import okhttp3.OkHttpClient
@@ -36,7 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 object CourseVideoList {
-    fun getVideos(context: Context, videoListElement: RecyclerView,noVideoFoundElement:TextView,id:Int) {
+    fun getVideos(context: Context,courseDetailImage:ImageView, videoListElement: RecyclerView,noVideoFoundElement:TextView,id:Int) {
         RetrofitClientVideo.instance.getDetails("Bearer ${AuthenticationToken(context).getJWT()}",id)
             .enqueue(object : Callback<Course>{
                 override fun onFailure(call: Call<Course>, t: Throwable) {
@@ -46,7 +44,8 @@ object CourseVideoList {
                 override fun onResponse(call: Call<Course>, response: Response<Course>) {
                     try{
                         if(response.isSuccessful) {
-                            Log.v("GetVideos",response.body().toString());
+                            Log.v("GetVideos",response.body().toString())
+                            LoadImage(courseDetailImage,response.body()!!.cover_image).execute()
                             VideoList.LoadVideos(context, videoListElement, noVideoFoundElement,response.body()!!.videos).execute()
                         } else{
                             val error= ApiError().getError(response.errorBody()?.string())

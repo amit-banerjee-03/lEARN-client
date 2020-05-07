@@ -71,8 +71,7 @@ class Home : AppCompatActivity() {
         }
 
         override fun onPostExecute(result: String?) {
-            courseListElement.adapter=CourseRecycleAdapter(context,courses){course ->  
-                Toast.makeText(context,course.description,Toast.LENGTH_LONG).show()
+            courseListElement.adapter=CourseRecycleAdapter(context,courses){course ->
                 val intent = Intent(context,VideoList::class.java)
                 intent.putExtra("COURSE_ID",course.id)
                 context.startActivity(intent)
