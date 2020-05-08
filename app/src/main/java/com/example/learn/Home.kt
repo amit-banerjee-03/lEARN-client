@@ -2,27 +2,21 @@ package com.example.learn
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learn.ApiCalls.HomePageCourses
 import com.example.learn.CustomAdapters.CourseRecycleAdapter
-import com.example.learn.CustomAdapters.ImageListView
 import com.example.learn.Menu.Action
 import com.example.learn.Models.Course
-import com.example.learn.Models.Courses
 import kotlinx.android.synthetic.main.activity_home.*
-import java.lang.Exception
-import java.net.URL
+
 
 class Home : AppCompatActivity() {
 
@@ -33,6 +27,12 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         context=this
+        courseListView.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
         HomePageCourses.getCourses(this,courseListView,null)
     }
 
