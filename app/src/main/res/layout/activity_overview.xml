@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6294AC"
     tools:context=".OverviewActivity">
 
 
@@ -27,7 +28,7 @@
 
     <ImageView
         android:id="@+id/profileImage"
-        android:layout_width="275dp"
+        android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
