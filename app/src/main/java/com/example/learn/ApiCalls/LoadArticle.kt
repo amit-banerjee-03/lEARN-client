@@ -7,6 +7,7 @@ import android.util.Base64
 import android.util.Log
 import android.widget.ImageView
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learn.*
@@ -50,6 +51,32 @@ object LoadArticle {
                     }catch (e:Exception){
                         Log.v("Debug",e.toString())
                         ErrorHandler.handle(context,"Error loading articles")
+                        return
+                    }
+                }
+            })
+    }
+    fun getArticle(context: Context, articleDetails: TextView, id:Int) {
+        RetrofitClientArticles.instance.getDetails("Bearer ${AuthenticationToken(context).getJWT()}",id)
+            .enqueue(object: Callback<com.example.learn.Models.Article> {
+                override fun onFailure(call: Call<com.example.learn.Models.Article>, t: Throwable) {
+                    ErrorHandler.handle(context,t.toString())
+                }
+                override fun onResponse(call: Call<com.example.learn.Models.Article>, response: Response<com.example.learn.Models.Article>) {
+                    try{
+                        if(response.isSuccessful) {
+                            ArticleDetailsActivity.LoadArticle(context,articleDetails,response.body()!!).execute()
+                        } else{
+                            val error= ApiError().getError(response.errorBody()?.string())
+                            ErrorHandler.handle(context,error)
+                            if(response.code()==401){
+                                AuthenticationToken(context).setJWT("")
+                                StartLoginActivity().execute(context)
+                            }
+                        }
+                    }catch (e:Exception){
+                        Log.v("Debug",e.toString())
+                        ErrorHandler.handle(context,"Error loading article")
                         return
                     }
                 }

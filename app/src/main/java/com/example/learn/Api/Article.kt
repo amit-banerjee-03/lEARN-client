@@ -14,7 +14,7 @@ interface Article {
         @Query("search_query") searchQuery:String?
     ): Call<Articles>
 
-    @GET("courses/course")
+    @GET("articles/article")
     fun getDetails(
         @Header("Authorization") authorization:String,
         @Query("id") id: Int
