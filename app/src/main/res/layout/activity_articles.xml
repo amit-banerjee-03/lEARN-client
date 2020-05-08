@@ -6,9 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".ArticlesActivity">
 
-    <WebView
+    <ImageView
+        android:id="@+id/articleCoverImage"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+    <FrameLayout
+        android:id="@+id/task_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:paddingBottom="60dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/articleCoverImage"
+        app:layout_constraintWidth_default="wrap">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/articleListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:paddingBottom="60dp"
+            app:layout_constraintTop_toBottomOf="@+id/articleCoverImage"
+            tools:layout_editor_absoluteX="10dp" />
+
+    </FrameLayout>
+    <TextView
+        android:id="@+id/no_article_found"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/articlesWebView"/>
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/empty_article" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
