@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home"
-    android:background="#D5D1D1">
+    android:background="@drawable/app_background_3">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/courseListView"
