@@ -9,7 +9,7 @@ object ErrorHandler{
     fun handle(con:Context,e: String){
         val toast=Toast.makeText(con,"\tError: $e ",Toast.LENGTH_LONG)
         val view=toast.view
-        view.setBackgroundResource(R.mipmap.red_bar)
+        view.setBackgroundResource(R.drawable.red_bar)
         toast.show()
     }
 }
