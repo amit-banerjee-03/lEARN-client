@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.graphics.PorterDuff
 import android.view.Menu
 import android.view.MenuItem
+import androidx.core.content.ContextCompat
 import com.example.learn.Menu.Action
 import com.example.learn.Utils.Authenticate
 import com.example.learn.Utils.AuthenticationToken
@@ -31,6 +32,20 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(this,OverviewActivity::class.java)
             startActivity(intent)
             finish()
+        }
+        username.setOnFocusChangeListener { view, b ->
+            if(b){
+                view.background=ContextCompat.getDrawable(context,R.drawable.input_border)
+            } else{
+                view.background=null
+            }
+        }
+        password.setOnFocusChangeListener { view, b ->
+            if(b){
+                view.background=ContextCompat.getDrawable(context,R.drawable.input_border)
+            } else{
+                view.background=null
+            }
         }
         logInButton.setOnClickListener {
             var error = validateInputs()
