@@ -1,5 +1,6 @@
 package com.example.learn.ApiCalls
 
+import android.content.ClipDescription
 import android.content.Context
 import android.content.Intent
 import android.os.AsyncTask
@@ -34,7 +35,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 object CourseVideoList {
-    fun getVideos(context: Context,courseDetailImage:ImageView, videoListElement: RecyclerView,noVideoFoundElement:TextView,id:Int) {
+    fun getVideos(context: Context,courseDetailImage:ImageView, videoListElement: RecyclerView,courseDescription: TextView,noVideoFoundElement:TextView,id:Int) {
         RetrofitClientVideo.instance.getDetails("Bearer ${AuthenticationToken(context).getJWT()}",id)
             .enqueue(object : Callback<Course>{
                 override fun onFailure(call: Call<Course>, t: Throwable) {
@@ -46,7 +47,7 @@ object CourseVideoList {
                         if(response.isSuccessful) {
                             Log.v("GetVideos",response.body().toString())
                             LoadImage(courseDetailImage,response.body()!!.cover_image).execute()
-                            VideoList.LoadVideos(context, videoListElement, noVideoFoundElement,response.body()!!.videos).execute()
+                            VideoList.LoadVideos(context, videoListElement, noVideoFoundElement,courseDescription,response.body()!!).execute()
                         } else{
                             val error= ApiError().getError(response.errorBody()?.string())
                             ErrorHandler.handle(context,error)

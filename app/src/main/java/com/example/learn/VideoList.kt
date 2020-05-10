@@ -29,7 +29,7 @@ class VideoList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         context=this
         setContentView(R.layout.activity_video_list)
-        CourseVideoList.getVideos(this,courseDetailImage,videoListView,no_video_found,intent.getIntExtra("COURSE_ID",0))
+        CourseVideoList.getVideos(this,courseDetailImage,videoListView,courseDescription,no_video_found,intent.getIntExtra("COURSE_ID",0))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -43,8 +43,10 @@ class VideoList : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    class LoadVideos(context: Context, videoListElement: RecyclerView, noVideoFound:TextView,videos:List<Video>): AsyncTask<String, Void, String>(){
-        val videos=videos
+    class LoadVideos(context: Context, videoListElement: RecyclerView, noVideoFound:TextView,courseDescription:TextView,course:Course): AsyncTask<String, Void, String>(){
+        val course=course
+        val courseDescription=courseDescription
+        val videos=course.videos
         val context=context
         val videoListElement=videoListElement
         val noVideoFound=noVideoFound
@@ -53,6 +55,7 @@ class VideoList : AppCompatActivity() {
         }
 
         override fun onPostExecute(result: String?) {
+            courseDescription.text=course.description
             videoListElement.adapter= VideoRecycleAdapter(context,videos){ video ->
                 val intent=Intent(context,VideoPlayerActivity::class.java)
                 intent.putExtra("VIDEO_ID",video.id)

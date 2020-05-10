@@ -16,12 +16,14 @@ import com.example.learn.R
 import java.lang.Exception
 import java.net.URL
 import java.util.*
+import kotlin.collections.ArrayList
 
 class CourseRecycleAdapter(
     val context: Context,
     val courses: List<Course>,
     val itemClick: (Course) -> Unit
 ) : Adapter<CourseRecycleAdapter.Holder>() {
+    private var loadedCourseIds=ArrayList<Int>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view =
             LayoutInflater.from(parent?.context).inflate(R.layout.course_list_item, parent, false)
