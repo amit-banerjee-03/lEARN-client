@@ -30,6 +30,6 @@ class FullScreenMediaController(val contextObj: Context,val videoPlayer:VideoVie
             }
 
         }
-        addView(fullScreenButton,params)
+        //addView(fullScreenButton,params)
     }
 }
