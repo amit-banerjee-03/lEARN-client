@@ -33,8 +33,8 @@ class CustomInputDialog(val currentContext: Context): AppCompatDialogFragment() 
         return builder.create()
     }
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
+    override fun onAttach(context: Context) {
+        super.onAttach(context!!)
         try{
             listener=context as CustomInputDialogListener
         }catch (e:ClassCastException){
