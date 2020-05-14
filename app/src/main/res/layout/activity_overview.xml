@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_background_3"
     tools:context=".OverviewActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/app_background_5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,10 +19,8 @@
                 android:id="@+id/profileImage"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardText"
                 app:srcCompat="@mipmap/avatar_icon" />
 
             <TextView
@@ -41,8 +39,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="My Dashboard"
-                android:textColor="#2A4B4A"
+                android:textColor="#FFFEFE"
                 android:textSize="30sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,6 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
                     android:layout_margin="12dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp">
@@ -72,7 +72,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:orientation="vertical"
                         android:padding="16dp">
 
@@ -82,6 +82,15 @@
                             android:layout_height="80dp"
                             android:scaleType="centerCrop"
                             app:srcCompat="@mipmap/courses_icon" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Courses"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp"
+                            />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -89,6 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
                     android:layout_margin="12dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp">
@@ -96,7 +106,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:orientation="vertical"
                         android:padding="16dp">
 
@@ -106,6 +116,15 @@
                             android:layout_height="80dp"
                             android:scaleType="centerCrop"
                             app:srcCompat="@mipmap/virtual_lab_icon" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Virtual Lab"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp"
+                            />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -113,6 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
                     android:layout_margin="12dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp">
@@ -120,7 +140,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:orientation="vertical"
                         android:padding="16dp">
 
@@ -130,6 +150,15 @@
                             android:layout_height="80dp"
                             android:scaleType="centerCrop"
                             app:srcCompat="@mipmap/articles_icon" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Articles"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp"
+                            />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -137,6 +166,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
                     android:layout_margin="12dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp">
@@ -144,7 +174,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:orientation="vertical"
                         android:padding="16dp">
 
@@ -154,6 +184,15 @@
                             android:layout_height="80dp"
                             android:scaleType="centerCrop"
                             app:srcCompat="@mipmap/progress_monitor_icon" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:text="Progress Monitor"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp"
+                            />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
