@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity"
+            android:label="Profile Settings"></activity>
         <activity android:name=".ArticleDetailsActivity" />
         <activity android:name=".ArticlesActivity" />
         <activity android:name=".ProgressMonitorActivity" />
