@@ -1,15 +1,20 @@
 package com.example.learn.Menu
 
 import android.content.Context
+import android.content.Intent
 import android.widget.Toast
 import com.example.learn.R
+import com.example.learn.SettingsActivity
 import com.example.learn.Utils.AuthenticationToken
 import com.example.learn.Utils.StartLoginActivity
 
 object Action {
     private fun click(context:Context,buttonTag:String){
         when(buttonTag){
-            "SETTINGS"->Toast.makeText(context,"Open settings",Toast.LENGTH_LONG).show()
+            "SETTINGS"->{
+                val intent=Intent(context,SettingsActivity::class.java)
+                context.startActivity(intent)
+            }
             "ABOUT_US"->Toast.makeText(context,"Open about us",Toast.LENGTH_LONG).show()
             "LOG_OUT"->{
                 AuthenticationToken(context).setJWT("")
