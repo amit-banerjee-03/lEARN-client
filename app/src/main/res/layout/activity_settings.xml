@@ -20,7 +20,10 @@
                 android:id="@+id/profileImage"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
+                android:layout_marginTop="36dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@mipmap/avatar_icon" />
 
@@ -41,6 +44,7 @@
                 android:textColor="#2A4B4A"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
 
