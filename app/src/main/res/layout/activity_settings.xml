@@ -114,6 +114,7 @@
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
                             android:text="Save Profile"
+                            android:textColor="#FFFFFF"
                             android:layout_gravity="center"
                             android:layout_marginTop="20sp"
                             android:background="@drawable/simple_gradient_button"/>
@@ -167,6 +168,7 @@
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
                             android:text="Save Password"
+                            android:textColor="#FFFFFF"
                             android:layout_gravity="center"
                             android:layout_marginTop="20sp"
                             android:background="@drawable/simple_gradient_button"/>
