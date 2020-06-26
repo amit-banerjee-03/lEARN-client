@@ -28,6 +28,6 @@ Deployment is simple. Just follow the [google instructions](https://developer.an
 
 ## Authors
 
-* **Amit Banerjee** - *Initial work* - [parkouramit](https://github.com/parkouramit)
+* **Amit Banerjee** - *Initial work* - [amit-banerjee-03](https://github.com/amit-banerjee-03)
 
 See also the list of [contributors](https://github.com/lEARN-client/contributors) who participated in this project.
