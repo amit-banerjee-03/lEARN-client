@@ -2,6 +2,10 @@
 
 This repository contains the source code for the e-learning android application. It contains **only** the client part of the application. The **server** code is in its separate [repository](https://www.github.com/parkouramit/lEARN-server).
 
+## What is lEARN?
+
+It is an e-learning app for android which can be used to learn any skill at desired pace. Along with video courses and articles, users can also download certificates and track their learning progress with this app. For all the people out there who believe in learning by doing practical work, a virtual lab is also present in this app which helps in building real world experience of the users.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -25,9 +29,5 @@ One more thing that you may need to change is the **server ip address**. Go to t
 ## Deployment
 
 Deployment is simple. Just follow the [google instructions](https://developer.android.com/studio/publish) to publish your app.
-
-## Authors
-
-* **Amit Banerjee** - *Initial work* - [amit-banerjee-03](https://github.com/amit-banerjee-03)
 
 See also the list of [contributors](https://github.com/lEARN-client/contributors) who participated in this project.
