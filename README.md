@@ -1,8 +1,4 @@
-# lEARN Client
-
-This repository contains the source code for the e-learning android application. It contains **only** the client part of the application. The **server** code is in its separate [repository](https://www.github.com/parkouramit/lEARN-server).
-
-## What is lEARN?
+# lEARN
 
 It is an e-learning app for android which can be used to learn any skill at desired pace. Along with video courses and articles, users can also download certificates and track their learning progress with this app. For all the people out there who believe in learning by doing practical work, a virtual lab is also present in this app which helps in building real world experience of the users.
 
